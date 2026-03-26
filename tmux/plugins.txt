@@ -1,0 +1,11 @@
+# Tmux plugins (instalados via tpm)
+# install.sh clona tpm y luego ejecuta la instalación automática
+
+tmux-plugins/tpm                  # Plugin manager
+tmux-plugins/tmux-sensible        # Defaults sensatos
+tmux-plugins/tmux-resurrect       # Persistir sesiones (prefix + Ctrl-s/r)
+tmux-plugins/tmux-yank            # Copiar al clipboard del sistema
+fcsonline/tmux-thumbs             # Selección rápida de texto (prefix + space)
+alexghergh/nvim-tmux-navigation   # Navegación nvim <-> tmux
+Nybkox/tmux-kanagawa              # Tema visual
+MunifTanjim/tmux-which-key        # Which-key para tmux

@@ -1,0 +1,71 @@
+[colors.bright]
+black = "0x6C6C6C"
+blue = "0x87D7FF"
+cyan = "0x00D7FF"
+green = "0x87D700"
+magenta = "0xFF87FF"
+red = "0xFF0000"
+white = "0xFFFFFF"
+yellow = "0xFFFF00"
+
+[colors.normal]
+black = "0x1e1e1e"
+blue = "0x5F87AF"
+cyan = "0x87AFD7"
+green = "0x5F8700"
+magenta = "0xD75F87"
+red = "0xD70000"
+white = "0xDCDCCC"
+yellow = "0xD7AF00"
+
+[colors.primary]
+background = "0x1e1e1e"
+foreground = "0xDCDCCC"
+
+[cursor]
+style = "Block"
+
+[font.bold]
+family = "IosevkaTerm Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "IosevkaTerm Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "IosevkaTerm Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
+
+[terminal]
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[terminal.shell]
+args = ["--login", "-c", "tmux a 2>/dev/null || tmux"]
+program = "/usr/bin/zsh"
+
+[window]
+decorations = "full"
+
+[window.dimensions]
+columns = 80
+lines = 24
+
+[window.padding]
+x = 0
+y = 0
+
+[keyboard]

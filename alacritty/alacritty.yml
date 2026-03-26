@@ -1,0 +1,80 @@
+# Alacritty Configuration File
+
+# Window
+window:
+  # Window dimensions (in character cells)
+  dimensions:
+    columns: 80
+    lines: 24
+
+  # Window padding (in pixels)
+  padding:
+    x: 0
+    y: 0
+
+  # Window decorations (full, none, or translucent)
+  decorations: full
+
+# Shell program to execute when spawning a new session.
+# Default shell is determined by your environment and is usually set to `bash` or `zsh`.
+shell:
+  # Specify the program to execute (e.g., `/usr/bin/zsh`)
+  program: /usr/bin/zsh   # Cambia esto a la ruta de tu shell deseado (ej. /usr/bin/zsh o /bin/zsh)
+
+  # Arguments to pass to the program
+  args:
+    - --login
+
+# Font configuration
+font:
+  normal:
+    family: "Monospace"
+    style: Regular
+  bold:
+    family: "Monospace"
+    style: Bold
+  italic:
+    family: "Monospace"
+    style: Italic
+
+# Colors (default is "Solarized Dark")
+colors:
+  primary:
+    background: '0x1e1e1e'
+    foreground: '0xDCDCCC'
+
+  normal:
+    black:   '0x1e1e1e'
+    red:     '0xD70000'
+    green:   '0x5F8700'
+    yellow:  '0xD7AF00'
+    blue:    '0x5F87AF'
+    magenta: '0xD75F87'
+    cyan:    '0x87AFD7'
+    white:   '0xDCDCCC'
+
+  bright:
+    black:   '0x6C6C6C'
+    red:     '0xFF0000'
+    green:   '0x87D700'
+    yellow:  '0xFFFF00'
+    blue:    '0x87D7FF'
+    magenta: '0xFF87FF'
+    cyan:    '0x00D7FF'
+    white:   '0xFFFFFF'
+
+# Cursor settings
+cursor:
+  style: Block
+  blink: true
+
+# Scrolling
+scrolling:
+  # Scrollback lines (set to 0 for no limit)
+  history: 10000
+  multiplier: 3
+
+# Key Bindings
+key_bindings:
+  - { key: V,    mods: Control, action: Paste }
+  - { key: C,    mods: Control, action: Copy }
