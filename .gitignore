@@ -1,0 +1,11 @@
+# Neovim runtime/cache
+nvim/.repro
+nvim/data/
+nvim/debug/
+nvim/tt.*
+nvim/.tests
+nvim/doc/tags
+nvim/*.log
+
+# Credenciales SSH (NUNCA commitear)
+nvim/.env
