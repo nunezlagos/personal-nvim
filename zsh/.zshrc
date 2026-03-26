@@ -112,5 +112,28 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.npm-global/bin:$PATH"
 alias aider="~/aider-venv/bin/aider --editor nvim"
+
+# ── Protección OpenCode / Claude ─────────────────────────────────────────────
+# Evita correr agentes IA desde el home — generan snapshots de TODO ~/
+_ai_guard() {
+  local cmd="$1"; shift
+  if [[ "$PWD" == "$HOME" || "$PWD" == "$HOME/" ]]; then
+    echo ""
+    echo "  [!!]  Estás en ~/  —  los agentes IA van a snapshotear TODO tu home."
+    echo "  [~~]  Hacé cd a un proyecto primero:"
+    echo ""
+    ls -d "$HOME"/Proyectos/*/ 2>/dev/null | while read p; do
+      echo "        cd $(basename $p)"
+    done
+    echo ""
+    echo -n "  ¿Continuar igual? [s/N] "
+    read -r resp
+    [[ "$resp" =~ ^[sS]$ ]] || return 1
+  fi
+  command "$cmd" "$@"
+}
+
+opencode() { _ai_guard opencode "$@" }
+claude()   { _ai_guard claude   "$@" }
 export PATH="$PATH:/home/nunezlagos/.local/bin"
 export PATH=$HOME/go/bin:$PATH
