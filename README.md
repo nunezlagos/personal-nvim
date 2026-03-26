@@ -94,11 +94,7 @@ Keymaps principales (prefix = `Ctrl+a`):
 
 ### Git
 
-Template en `git/.gitconfig.template`. Al instalar en una máquina nueva:
-```bash
-git config --global user.name  "Tu Nombre"
-git config --global user.email "tu@email.com"
-```
+Config en `git/.gitconfig`. Se instala en `~/.gitconfig` con backup automático.
 
 ---
 
@@ -116,7 +112,7 @@ personal-nvim/
 │   ├── alacritty.toml         # Config moderna (activa)
 │   └── alacritty.yml          # Config legacy
 ├── git/
-│   └── .gitconfig.template    # Template de gitconfig (sin datos personales)
+│   └── .gitconfig             # Config de git
 ├── lazygit/
 │   └── config.yml             # Config de lazygit
 ├── nvim/                      # Config completa de Neovim

@@ -155,14 +155,9 @@ ok "Config de Lazygit copiada"
 # ── Paso 7: Git ───────────────────────────────────────────────────────────────
 step 7 "Configurando Git → ~/.gitconfig"
 
-if [ ! -f "$HOME/.gitconfig" ]; then
-  cp "$REPO_DIR/git/.gitconfig.template" "$HOME/.gitconfig"
-  warn ".gitconfig creado desde template — actualizá con:"
-  warn "  git config --global user.name  'Tu Nombre'"
-  warn "  git config --global user.email 'tu@email.com'"
-else
-  skip ".gitconfig ya existe — no se sobreescribe"
-fi
+backup_if_exists "$HOME/.gitconfig"
+cp "$REPO_DIR/git/.gitconfig" "$HOME/.gitconfig"
+ok ".gitconfig copiado"
 
 # ── Listo ─────────────────────────────────────────────────────────────────────
 echo
@@ -171,9 +166,8 @@ echo "  Instalación completa."
 echo
 echo "  Próximos pasos:"
 echo "    1. Editá ~/.config/nvim/.env  → conexiones SSH"
-echo "    2. Verificá ~/.gitconfig      → nombre y email"
-echo "    3. Ejecutá: nvim              → Lazy instala plugins automáticamente"
-echo "    4. Abrí tmux y ejecutá: prefix + I   para instalar plugins"
-echo "    5. Reiniciá el shell: source ~/.zshrc"
-echo "    6. Instalá la fuente: IosevkaTerm Nerd Font"
+echo "    2. Ejecutá: nvim              → Lazy instala plugins automáticamente"
+echo "    3. Abrí tmux y ejecutá: prefix + I   para instalar plugins"
+echo "    4. Reiniciá el shell: source ~/.zshrc"
+echo "    5. Instalá la fuente: IosevkaTerm Nerd Font"
 echo
