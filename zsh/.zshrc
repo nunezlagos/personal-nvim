@@ -113,27 +113,65 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.npm-global/bin:$PATH"
 alias aider="~/aider-venv/bin/aider --editor nvim"
 
-# ── Protección OpenCode / Claude ─────────────────────────────────────────────
-# Evita correr agentes IA desde el home — generan snapshots de TODO ~/
-_ai_guard() {
+# ── Selector de proyecto para agentes IA ─────────────────────────────────────
+_ai_project_picker() {
   local cmd="$1"; shift
-  if [[ "$PWD" == "$HOME" || "$PWD" == "$HOME/" ]]; then
-    echo ""
-    echo "  [!!]  Estás en ~/  —  los agentes IA van a snapshotear TODO tu home."
-    echo "  [~~]  Hacé cd a un proyecto primero:"
-    echo ""
-    ls -d "$HOME"/Proyectos/*/ 2>/dev/null | while read p; do
-      echo "        cd $(basename $p)"
+
+  # Recopilar proyectos: ~/Proyectos + directorio actual si es un proyecto
+  local proyectos=()
+  if [[ -d "$HOME/Proyectos" ]]; then
+    for d in "$HOME"/Proyectos/*/; do
+      [[ -d "$d" ]] && proyectos+=("$d")
     done
-    echo ""
-    echo -n "  ¿Continuar igual? [s/N] "
-    read -r resp
-    [[ "$resp" =~ ^[sS]$ ]] || return 1
   fi
-  command "$cmd" "$@"
+
+  echo ""
+  echo "  ┌─────────────────────────────────────────┐"
+  echo "  │   $cmd — Seleccioná un proyecto          │"
+  echo "  └─────────────────────────────────────────┘"
+  echo ""
+
+  # Opción 0: directorio actual (si no es home)
+  local show_current=false
+  if [[ "$PWD" != "$HOME" && "$PWD" != "$HOME/" ]]; then
+    show_current=true
+    echo "   0) $(basename $PWD)  \e[2m(directorio actual)\e[0m"
+  fi
+
+  # Listar proyectos numerados
+  local i=1
+  for p in "${proyectos[@]}"; do
+    echo "   $i) $(basename $p)"
+    (( i++ ))
+  done
+
+  echo ""
+  echo -n "  Elegí [0-$((i-1))] o Enter para cancelar: "
+  read -r choice
+
+  # Cancelar
+  [[ -z "$choice" ]] && echo "  Cancelado." && return 1
+
+  # Opción 0: directorio actual
+  if [[ "$choice" == "0" && "$show_current" == true ]]; then
+    echo "  → Abriendo en $PWD"
+    command "$cmd" "$@"
+    return
+  fi
+
+  # Validar número
+  if ! [[ "$choice" =~ ^[0-9]+$ ]] || (( choice < 1 || choice >= i )); then
+    echo "  [!!] Opción inválida."
+    return 1
+  fi
+
+  # Ir al proyecto elegido y abrir
+  local target="${proyectos[$choice]}"
+  echo "  → $(basename $target)"
+  cd "$target" && command "$cmd" "$@"
 }
 
-opencode() { _ai_guard opencode "$@" }
-claude()   { _ai_guard claude   "$@" }
+opencode() { _ai_project_picker opencode "$@" }
+claude()   { _ai_project_picker claude   "$@" }
 export PATH="$PATH:/home/nunezlagos/.local/bin"
 export PATH=$HOME/go/bin:$PATH
