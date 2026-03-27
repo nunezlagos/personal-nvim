@@ -103,7 +103,15 @@ local function build_ssh_cmd(t)
   local ssh_cmd = table.concat(parts, " ") .. " " .. target .. remote_cmd
 
   if t.password then
-    return "sshpass -p " .. vim.fn.shellescape(t.password) .. " " .. ssh_cmd
+    -- Use sshpass if available, otherwise connect interactively (user types password)
+    local has_sshpass = vim.fn.executable("sshpass") == 1
+    if has_sshpass then
+      return "sshpass -p " .. vim.fn.shellescape(t.password) .. " " .. ssh_cmd
+    else
+      -- Add SSH options to allow password auth without sshpass
+      local extra = " -o PasswordAuthentication=yes -o PubkeyAuthentication=no"
+      return ssh_cmd:gsub("^ssh ", "ssh" .. extra .. " ")
+    end
   end
 
   return ssh_cmd
