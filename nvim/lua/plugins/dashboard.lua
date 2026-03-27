@@ -58,6 +58,7 @@ local function load_terminals_config()
       key = env[p .. "key"],
       password = env[p .. "password"],
       port = env[p .. "port"],
+      path = env[p .. "path"],
     }
 
     -- Collect env vars: connection_{N}_env_{VAR}=value
@@ -90,14 +91,22 @@ local function build_ssh_cmd(t)
 
   local target = t.user and (t.user .. "@" .. t.host) or t.host
 
-  -- Build remote command with env vars
-  local remote_cmd = ""
+  -- Build remote command with env vars and optional path
+  local remote_parts = {}
+
   if t.env_vars and #t.env_vars > 0 then
-    local exports = {}
     for _, v in ipairs(t.env_vars) do
-      table.insert(exports, "export " .. vim.fn.shellescape(v))
+      table.insert(remote_parts, "export " .. vim.fn.shellescape(v))
     end
-    remote_cmd = " " .. table.concat(exports, " ") .. " && exec bash -l"
+  end
+
+  if t.path then
+    table.insert(remote_parts, "cd " .. vim.fn.shellescape(t.path))
+  end
+
+  local remote_cmd = ""
+  if #remote_parts > 0 then
+    remote_cmd = " " .. table.concat(remote_parts, " && ") .. " && exec bash -l"
   end
 
   local ssh_cmd = table.concat(parts, " ") .. " " .. target .. remote_cmd
