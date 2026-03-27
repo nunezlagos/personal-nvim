@@ -106,7 +106,9 @@ local function build_ssh_cmd(t)
 
   local remote_cmd = ""
   if #remote_parts > 0 then
-    remote_cmd = " " .. table.concat(remote_parts, " && ") .. " && exec bash -l"
+    -- Wrap in quotes so && is interpreted by the REMOTE shell, not the local one
+    -- -t forces TTY allocation for interactive session
+    remote_cmd = ' -t "' .. table.concat(remote_parts, " && ") .. ' && exec bash -l"'
   end
 
   local ssh_cmd = table.concat(parts, " ") .. " " .. target .. remote_cmd
