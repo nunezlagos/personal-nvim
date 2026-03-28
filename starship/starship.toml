@@ -1,7 +1,6 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-# Starship - Trae Dark
-# Paleta: #32F08C (verde/teal primario) · #38B0F0 (azul) · #A07AEF (violeta)
-#         #F05A72 (rojo) · #EDD040 (amarillo) · #C5D8EA (fg) · #0A0E14 (bg)
+# Starship - Neon Abyss
+# Cyan · Lime · Rose · Green · Amber · Red
 # ═══════════════════════════════════════════════════════════════════════════════
 
 format = """
@@ -10,25 +9,26 @@ $username$directory$git_branch$git_status$cmd_duration$character"""
 add_newline = false
 
 [username]
-style_user = "bold #32F08C"
-style_root = "bold #F05A72"
+style_user = "bold #00DDB8"
+style_root = "bold #F03060"
 format = "[$user]($style) "
 show_always = true
 
 [directory]
-style = "bold #38B0F0"
+style = "bold #7AF060"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
+read_only_style = "#F03060"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
-style = "bold #A07AEF"
+style = "bold #FF6B8E"
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
-style = "#F05A72"
+style = "#F03060"
 conflicted = "!"
 ahead = " ⇡${count}"
 behind = " ⇣${count}"
@@ -42,15 +42,12 @@ deleted = " ✘"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#EDD040"
+style = "#E8D040"
 min_time = 2000
 
 [character]
-success_symbol = "[❯](#32F08C bold)"
-error_symbol = "[❯](#F05A72 bold)"
-
-[fill]
-symbol = " "
+success_symbol = "[❯](#00DDB8 bold)"
+error_symbol = "[❯](#F03060 bold)"
 
 [package]
 disabled = true
