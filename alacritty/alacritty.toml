@@ -1,13 +1,13 @@
-# Everforest Dark Hard
-# Tema warm/café, armónico, fácil para ojos
-# bg: #272e33 · fg: #d3c6aa · green: #a7c080 · aqua: #83c092
+# Everforest Dark — fondo neutro puro
+# bg: #141414 (negro puro, sin filtro) · colores Everforest en la sintaxis
+# fg: #d3c6aa · green: #a7c080 · aqua: #83c092
 
 [colors.primary]
-background = "0x272e33"
+background = "0x141414"
 foreground = "0xd3c6aa"
 
 [colors.normal]
-black   = "0x272e33"
+black   = "0x141414"
 red     = "0xe67e80"
 green   = "0xa7c080"
 yellow  = "0xdbbc7f"
@@ -17,7 +17,7 @@ cyan    = "0x83c092"
 white   = "0xd3c6aa"
 
 [colors.bright]
-black   = "0x475258"
+black   = "0x3a3a3a"
 red     = "0xe67e80"
 green   = "0xa7c080"
 yellow  = "0xdbbc7f"
@@ -27,7 +27,7 @@ cyan    = "0x83c092"
 white   = "0xd3c6aa"
 
 [colors.selection]
-background = "0x3d4a4f"
+background = "0x2a2a2a"
 foreground = "0xd3c6aa"
 
 [cursor]
@@ -65,8 +65,8 @@ program = "/usr/bin/zsh"
 
 [window]
 decorations = "full"
-opacity = 0.92
-blur = true
+opacity = 1.0
+blur = false
 
 [window.dimensions]
 columns = 80
