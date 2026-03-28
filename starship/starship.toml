@@ -1,7 +1,7 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-# Starship - Obsidian
-# Fondo neutro puro · sin tintes · keratoconus-friendly
-# Cyan #00C8A0 · Lime #78E030 · Rose #E04870 · Green #2ED870 · Amber #C8A018
+# Starship - Everforest Dark
+# bg: #272e33 · fg: #d3c6aa · green: #a7c080 · aqua: #83c092
+# yellow: #dbbc7f · orange: #e69875 · red: #e67e80 · purple: #d699b6
 # ═══════════════════════════════════════════════════════════════════════════════
 
 format = """
@@ -10,26 +10,26 @@ $username$directory$git_branch$git_status$cmd_duration$character"""
 add_newline = false
 
 [username]
-style_user = "bold #00C8A0"
-style_root = "bold #D02848"
+style_user = "bold #83c092"
+style_root = "bold #e67e80"
 format = "[$user]($style) "
 show_always = true
 
 [directory]
-style = "bold #78E030"
+style = "bold #a7c080"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
-read_only_style = "#D02848"
+read_only_style = "#e67e80"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
-style = "bold #E04870"
+style = "bold #d699b6"
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
-style = "#D02848"
+style = "#e67e80"
 conflicted = "!"
 ahead = " ⇡${count}"
 behind = " ⇣${count}"
@@ -43,24 +43,20 @@ deleted = " ✘"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#C8A018"
+style = "#dbbc7f"
 min_time = 2000
 
 [character]
-success_symbol = "[❯](#00C8A0 bold)"
-error_symbol = "[❯](#D02848 bold)"
+success_symbol = "[❯](#83c092 bold)"
+error_symbol = "[❯](#e67e80 bold)"
 
 [package]
 disabled = true
-
 [nodejs]
 disabled = true
-
 [python]
 disabled = true
-
 [golang]
 disabled = true
-
 [rust]
 disabled = true
