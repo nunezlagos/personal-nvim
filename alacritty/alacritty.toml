@@ -1,26 +1,33 @@
-[colors.bright]
-black = "0x6C6C6C"
-blue = "0x87D7FF"
-cyan = "0x00D7FF"
-green = "0x87D700"
-magenta = "0xFF87FF"
-red = "0xFF0000"
-white = "0xFFFFFF"
-yellow = "0xFFFF00"
-
-[colors.normal]
-black = "0x1e1e1e"
-blue = "0x5F87AF"
-cyan = "0x87AFD7"
-green = "0x5F8700"
-magenta = "0xD75F87"
-red = "0xD70000"
-white = "0xDCDCCC"
-yellow = "0xD7AF00"
+# Trae Dark
+# Paleta armónica centrada en #32F08C (verde Trae)
 
 [colors.primary]
-background = "0x1e1e1e"
-foreground = "0xDCDCCC"
+background = "0x0a0e14"
+foreground = "0xc5d8ea"
+
+[colors.normal]
+black   = "0x0a0e14"
+red     = "0xf05a72"
+green   = "0x32f08c"
+yellow  = "0xedd040"
+blue    = "0x38b0f0"
+magenta = "0xa07aef"
+cyan    = "0x2dd4bf"
+white   = "0xc5d8ea"
+
+[colors.bright]
+black   = "0x4a6070"
+red     = "0xf07a8a"
+green   = "0x50f8a0"
+yellow  = "0xf8e060"
+blue    = "0x60c8f8"
+magenta = "0xbf9af8"
+cyan    = "0x50e8dc"
+white   = "0xe0ecfa"
+
+[colors.selection]
+background = "0x1e3048"
+foreground = "0xc5d8ea"
 
 [cursor]
 style = "Block"
@@ -47,8 +54,6 @@ action = "Copy"
 key = "C"
 mods = "Control"
 
-[terminal]
-
 [scrolling]
 history = 10000
 multiplier = 3
@@ -59,13 +64,15 @@ program = "/usr/bin/zsh"
 
 [window]
 decorations = "full"
+opacity = 0.92
+blur = true
 
 [window.dimensions]
 columns = 80
 lines = 24
 
 [window.padding]
-x = 0
-y = 0
+x = 8
+y = 8
 
 [keyboard]
