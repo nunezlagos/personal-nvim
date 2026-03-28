@@ -1,7 +1,7 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-# Starship - Everforest Dark
-# bg: #272e33 · fg: #d3c6aa · green: #a7c080 · aqua: #83c092
-# yellow: #dbbc7f · orange: #e69875 · red: #e67e80 · purple: #d699b6
+# Starship - Everforest saturado
+# green: #98c870 · aqua: #68cc88 · orange: #e88462 · red: #e86262
+# yellow: #dcb860 · purple: #d87fad
 # ═══════════════════════════════════════════════════════════════════════════════
 
 format = """
@@ -10,26 +10,26 @@ $username$directory$git_branch$git_status$cmd_duration$character"""
 add_newline = false
 
 [username]
-style_user = "bold #83c092"
-style_root = "bold #e67e80"
+style_user = "bold #68cc88"
+style_root = "bold #e86262"
 format = "[$user]($style) "
 show_always = true
 
 [directory]
-style = "bold #a7c080"
+style = "bold #98c870"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
-read_only_style = "#e67e80"
+read_only_style = "#e86262"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
-style = "bold #d699b6"
+style = "bold #d87fad"
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
-style = "#e67e80"
+style = "#e86262"
 conflicted = "!"
 ahead = " ⇡${count}"
 behind = " ⇣${count}"
@@ -43,12 +43,12 @@ deleted = " ✘"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#dbbc7f"
+style = "#dcb860"
 min_time = 2000
 
 [character]
-success_symbol = "[❯](#83c092 bold)"
-error_symbol = "[❯](#e67e80 bold)"
+success_symbol = "[❯](#68cc88 bold)"
+error_symbol = "[❯](#e86262 bold)"
 
 [package]
 disabled = true
