@@ -1,34 +1,35 @@
-# Neon Abyss
-# Cyan #00DDB8 · Lime #7AF060 · Rose #FF6B8E · Green #32F08C
-# bg: #0A1018  fg: #A8D8C8
+# Obsidian
+# Fondo neutro puro (sin tintes azules) · pensado para queratocono
+# Cyan #00C8A0 · Lime #78E030 · Rose #E04870 · Green #2ED870
+# bg: #0A0A0A  fg: #C4CDB8 (blanco cálido, sin halo azul)
 
 [colors.primary]
-background = "0x0a1018"
-foreground = "0xa8d8c8"
+background = "0x0a0a0a"
+foreground = "0xc4cdb8"
 
 [colors.normal]
-black   = "0x060b0e"
-red     = "0xf03060"
-green   = "0x32f08c"
-yellow  = "0xe8d040"
-blue    = "0x00ddb8"
-magenta = "0xff6b8e"
-cyan    = "0x20c8b0"
-white   = "0xa8d8c8"
+black   = "0x0a0a0a"
+red     = "0xd02848"
+green   = "0x2ed870"
+yellow  = "0xc8a018"
+blue    = "0x00c8a0"
+magenta = "0xe04870"
+cyan    = "0x78e030"
+white   = "0xc4cdb8"
 
 [colors.bright]
-black   = "0x3d6070"
-red     = "0xf05070"
-green   = "0x7af060"
-yellow  = "0xf8e860"
-blue    = "0x00f8d8"
-magenta = "0xff90b0"
-cyan    = "0x40e8d0"
-white   = "0xc8eee0"
+black   = "0x3a4a38"
+red     = "0xe04060"
+green   = "0x50f088"
+yellow  = "0xe8c030"
+blue    = "0x20e8b8"
+magenta = "0xf06888"
+cyan    = "0x98f050"
+white   = "0xdce8d0"
 
 [colors.selection]
-background = "0x1a3040"
-foreground = "0xa8d8c8"
+background = "0x1a2018"
+foreground = "0xc4cdb8"
 
 [cursor]
 style = "Block"

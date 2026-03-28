@@ -1,6 +1,7 @@
 # ═══════════════════════════════════════════════════════════════════════════════
-# Starship - Neon Abyss
-# Cyan · Lime · Rose · Green · Amber · Red
+# Starship - Obsidian
+# Fondo neutro puro · sin tintes · keratoconus-friendly
+# Cyan #00C8A0 · Lime #78E030 · Rose #E04870 · Green #2ED870 · Amber #C8A018
 # ═══════════════════════════════════════════════════════════════════════════════
 
 format = """
@@ -9,26 +10,26 @@ $username$directory$git_branch$git_status$cmd_duration$character"""
 add_newline = false
 
 [username]
-style_user = "bold #00DDB8"
-style_root = "bold #F03060"
+style_user = "bold #00C8A0"
+style_root = "bold #D02848"
 format = "[$user]($style) "
 show_always = true
 
 [directory]
-style = "bold #7AF060"
+style = "bold #78E030"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " "
-read_only_style = "#F03060"
+read_only_style = "#D02848"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
-style = "bold #FF6B8E"
+style = "bold #E04870"
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
-style = "#F03060"
+style = "#D02848"
 conflicted = "!"
 ahead = " ⇡${count}"
 behind = " ⇣${count}"
@@ -42,12 +43,12 @@ deleted = " ✘"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#E8D040"
+style = "#C8A018"
 min_time = 2000
 
 [character]
-success_symbol = "[❯](#00DDB8 bold)"
-error_symbol = "[❯](#F03060 bold)"
+success_symbol = "[❯](#00C8A0 bold)"
+error_symbol = "[❯](#D02848 bold)"
 
 [package]
 disabled = true
