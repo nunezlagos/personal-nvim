@@ -14,6 +14,14 @@ vim.api.nvim_create_autocmd("BufDelete", {
   group = vim.api.nvim_create_augroup("dashboard_on_empty", { clear = true }),
   callback = function()
     vim.schedule(function()
+      -- Si hay una ventana con Oil abierta, no mostrar dashboard
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.api.nvim_buf_get_name(buf):match("^oil://") then
+          return
+        end
+      end
+
       -- Contar buffers reales (archivos, no terminales ni especiales)
       local bufs = vim.tbl_filter(function(b)
         return vim.api.nvim_buf_is_valid(b)
