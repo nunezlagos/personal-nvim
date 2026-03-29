@@ -8,7 +8,7 @@ return {
     "LazyGitFilterCurrentFile",
   },
   keys = {
-    { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
+    { "<leader>gg", "<cmd>LazyGitCurrentFile<cr>", desc = "Open LazyGit" },
   },
   opts = {
     floating_window = true,

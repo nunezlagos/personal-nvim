@@ -67,3 +67,25 @@ end, { desc = "SSHFS Montar" })
 vim.keymap.set("n", "<leader>su", function()
   if _G.unmount_sshfs_picker then _G.unmount_sshfs_picker() end
 end, { desc = "SSHFS Desmontar" })
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- OIL: File explorer (editar archivos como buffer)
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- <leader>e y <leader>E están definidos en plugins/oil.lua (vía keys = {})
+-- Aquí solo referenciamos para documentación del workflow:
+-- <leader>e  → oil en directorio del archivo actual
+-- <leader>E  → oil desde cwd (raíz del proyecto)
+-- Dentro de oil: <CR>=abrir  <BS>/-=subir  R=renombrar  H=toggle hidden  q/<Esc>=cerrar
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- GREP: Buscar palabra en archivos (alias para teclados español)
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- <leader>/ requiere Shift+7 en teclado español → usamos <leader>fg como alias
+vim.keymap.set("n", "<leader>fg", function()
+  Snacks.picker.grep()
+end, { desc = "Grep en archivos (cwd)" })
+
+-- Buscar la palabra bajo el cursor directamente
+vim.keymap.set("n", "<leader>fw", function()
+  Snacks.picker.grep_word()
+end, { desc = "Grep palabra bajo cursor" })
