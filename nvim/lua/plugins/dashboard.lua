@@ -114,6 +114,7 @@ local function load_terminals_config()
       password = env[p .. "password"],
       port = env[p .. "port"],
       path = env[p .. "path"],
+      options = env[p .. "options"],
     }
 
     -- Collect env vars: connection_{N}_env_{VAR}=value
@@ -134,6 +135,11 @@ end
 
 local function build_ssh_cmd(t)
   local parts = { "ssh" }
+
+  -- Opciones extra (ej: -o HostKeyAlgorithms=+ssh-rsa para servidores legacy)
+  if t.options then
+    table.insert(parts, t.options)
+  end
 
   if t.key then
     local expanded = vim.fn.expand(t.key)
