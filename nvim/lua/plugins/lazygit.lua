@@ -13,9 +13,11 @@ return {
       function()
         local bufname = vim.api.nvim_buf_get_name(0)
         -- Si estamos en Oil, extraer el path real (oil:///ruta/ → /ruta/)
-        local real_path = bufname:match("^oil://(.+)") or vim.fn.expand("%:p:h")
-        if vim.fn.isdirectory(real_path) == 1 then
-          vim.cmd("LazyGit " .. vim.fn.fnameescape(real_path))
+        local real_path = bufname:match("^oil://(.+)")
+        if real_path then
+          -- Quitar trailing slash
+          real_path = real_path:gsub("/$", "")
+          require("lazygit").lazygit(real_path)
         else
           vim.cmd("LazyGitCurrentFile")
         end
