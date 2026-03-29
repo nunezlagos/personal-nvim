@@ -18,6 +18,8 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- Deshabilitar snacks explorer (usamos oil)
+    { import = "lazyvim.plugins.extras.editor.snacks_explorer", enabled = false },
     -- import/override with your plugins
     { import = "plugins" },
   },

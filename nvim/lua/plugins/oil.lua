@@ -1,4 +1,11 @@
 return {
+  -- Deshabilitar snacks.explorer para que no pise <leader>e
+  {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = { enabled = false },
+    },
+  },
   {
     "stevearc/oil.nvim",
     lazy = false,
