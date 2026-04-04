@@ -1,0 +1,47 @@
+# Ghostty - Modus Vivendi (WCAG AAA contraste máximo para queratocono)
+# background: #000000 (negro puro) · foreground: #ffffff (blanco puro)
+
+background = #000000
+foreground = #ffffff
+
+# Paleta de colores de alto contraste
+palette = [
+    # Normal colors
+    #0=#000000,
+    #1=#ff5f5f,
+    #2=#87ff5f,
+    #3=#ffff5f,
+    #4=#5fdfff,
+    #5=#ff87ff,
+    #6=#5fffd7,
+    #7=#ffffff,
+    # Bright colors
+    #8=#808080,
+    #9=#ff8787,
+    #10=#afff8f,
+    #11=#ffff87,
+    #12=#87dfff,
+    #13=#ffafff,
+    #14=#87fff7,
+    #15=#ffffff,
+]
+
+# Selection - inversión para alto contraste
+selection-background = #ffffff
+selection-foreground = #000000
+
+# Cursor
+cursor-style = block
+cursor-blink = always
+
+# Font
+font-family = "IosevkaTerm Nerd Font"
+font-size = 12
+
+# Shell - iniciar tmux automáticamente
+shell = /usr/bin/zsh
+shell-args = --login -c "tmux a 2>/dev/null || tmux"
+
+# Window
+window-padding-x = 8
+window-padding-y = 8
