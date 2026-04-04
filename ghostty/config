@@ -1,47 +1,38 @@
-# Ghostty - Modus Vivendi (WCAG AAA contraste máximo para queratocono)
-# background: #000000 (negro puro) · foreground: #ffffff (blanco puro)
+# Ghostty - Contraste óptimo para queratocono (sin halo/dispersión)
+background = #0d0d0d
+foreground = #e8e8e8
 
-background = #000000
-foreground = #ffffff
-
-# Paleta de colores de alto contraste
-palette = [
-    # Normal colors
-    #0=#000000,
-    #1=#ff5f5f,
-    #2=#87ff5f,
-    #3=#ffff5f,
-    #4=#5fdfff,
-    #5=#ff87ff,
-    #6=#5fffd7,
-    #7=#ffffff,
-    # Bright colors
-    #8=#808080,
-    #9=#ff8787,
-    #10=#afff8f,
-    #11=#ffff87,
-    #12=#87dfff,
-    #13=#ffafff,
-    #14=#87fff7,
-    #15=#ffffff,
-]
-
-# Selection - inversión para alto contraste
-selection-background = #ffffff
-selection-foreground = #000000
+# Selection - contraste moderado
+selection-background = #e8e8e8
+selection-foreground = #0d0d0d
 
 # Cursor
 cursor-style = block
-cursor-blink = always
 
 # Font
-font-family = "IosevkaTerm Nerd Font"
-font-size = 12
-
-# Shell - iniciar tmux automáticamente
-shell = /usr/bin/zsh
-shell-args = --login -c "tmux a 2>/dev/null || tmux"
+font-family = JetBrains Mono Nerd Font
+font-size = 13
 
 # Window
-window-padding-x = 8
-window-padding-y = 8
+window-padding-x = 10
+window-padding-y = 10
+
+# Auto-start tmux - cada terminal = sesión nueva independiente
+command = /usr/bin/tmux
+
+# Keybindings estilo nvim (which-key style)
+# Tabs: Alt+1-9 para ir directo, Ctrl+Shift+T nueva, Ctrl+Shift+W cerrar
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_tab:this
+keybind = alt+shift+h=previous_tab
+keybind = alt+shift+l=next_tab
+
+# Splits
+keybind = ctrl+shift+o=new_split:right
+keybind = ctrl+shift+e=new_split:down
+
+# Navegación
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right
